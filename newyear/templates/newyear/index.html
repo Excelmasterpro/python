@@ -1,0 +1,30 @@
+<!-- the below code is for Django to know that is has to load the static style we have added. Django will figure it out where the static is -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is it new years?</title>
+
+    <link rel="stylesheet" href="{% static 'newyear/styles.css' %}">
+</head>
+
+<body>
+
+    <!-- here using Django logic we can conditionaly determine what to use, for that we use -->
+    <!-- The user will not see the django logic -->
+    {% if newyear %}
+    <h1>YES</h1>
+    {% else %}
+    <h1>NO</h1>
+    {% endif %}
+
+
+</body>
+
+
+</html>

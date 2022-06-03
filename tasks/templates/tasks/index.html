@@ -1,0 +1,20 @@
+<!-- here we tell Django to use the template inheritance feature -->
+{% extends "tasks/layout.html" %}
+
+{% block body %}
+
+<h1> Task detail! (Jesus is King)</h1>
+<ul>
+
+    {% for task in tasks %}
+    <li> "God is awesome!" - {{ task }}</li>
+    {% empty %}
+    <li>No tasks.</li>
+    {% endfor %}
+
+</ul>
+
+<!-- we can add the url link with Django using the "Name" refence we put in the urls.py -->
+<a href="{% url 'tasksNC:add' %}">Add a new task</a>
+
+{% endblock %}

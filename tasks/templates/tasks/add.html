@@ -1,0 +1,20 @@
+{% extends "tasks/layout.html" %}
+
+{% block body %}
+
+<h1>add Task! (Jesus is Lord)</h1>
+<form action="{% url 'tasksNC:add' %}" method="post">
+
+    <!-- submitting data we use post, submitting post data, send data to a route -->
+    <!-- Forms should submitt data in a secure way, otherwise hachers could create havoc. Django has a function to deal with that an create CSRF tokes to validate. In the settings.py there is a section called Middleware that deals with that to allow the request to be validadtes via the token and if it doesn't find it, it will not allow making changes to the data. Nobody can forge the submit -->
+
+    {% csrf_token %}
+
+    <!-- <input type="text" name="tasks"> -->
+    <!-- instead now we use the Django forms capability -->
+    {{ form }}
+    <input type="submit">
+</form>
+<!-- we gave an app name to the tasks app to identify it and prevent duplicates names -->
+<a href="{% url 'tasksNC:index' %}">View task</a>
+{% endblock %}
